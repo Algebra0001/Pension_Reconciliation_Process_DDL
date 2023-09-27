@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1152,4792</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>844,3800.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LookupModule_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -126,7 +126,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LookupModule" sap:VirtualizedContainerService.HintSize="649.6,4727.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LookupModule" sap:VirtualizedContainerService.HintSize="649.6,3736" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="empFilePath" />
       <Variable x:TypeArguments="x:String" Name="empFileSheet" />
@@ -182,7 +182,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Employer]" DisplayName="Employee Datatable Created frodm the above assignment" sap:VirtualizedContainerService.HintSize="587.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[empFileSheet]" WorkbookPath="[empFilePath]" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Employee Datatable Created from the above assignment" DataTable="[dt_Employer]" DisplayName="Read Range - Employer Dt" sap:VirtualizedContainerService.HintSize="587.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[empFileSheet]" WorkbookPath="[empFilePath]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ReadRange>
     <ui:ReadCell Cell="B1" DisplayName="Read Cell Workbook to Place the Employee DataTable in the workbook/excel" sap:VirtualizedContainerService.HintSize="587.2,88" sap2010:WorkflowViewState.IdRef="ReadCell_3" SheetName="[empFileSheet]" WorkbookPath="[empFilePath]">
       <ui:ReadCell.Result>
         <OutArgument x:TypeArguments="x:String">[ddlPinHeader]</OutArgument>
@@ -197,13 +203,13 @@
         <InArgument x:TypeArguments="x:Int32">1</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Employer]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="587.2,3660.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Employer]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="587.2,2688.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,2917.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,2500.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="ddlPin" />
               <Variable x:TypeArguments="x:String" Name="myValue" />
@@ -266,7 +272,14 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[employeePin]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[employeePin]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
             <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[dt_Custodian]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="510.4,295.2" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnName="DDL PIN" LookupValue="[employeePin]" RowIndex="[Index]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -275,7 +288,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:LookupDataTable>
-            <If Condition="[Index &gt; -1]" sap:VirtualizedContainerService.HintSize="510.4,1411.2" sap2010:WorkflowViewState.IdRef="If_5">
+            <If Condition="[Index &gt; -1]" sap:VirtualizedContainerService.HintSize="510.4,1269.6" sap2010:WorkflowViewState.IdRef="If_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -283,7 +296,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="476.8,1022.4" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                <Sequence sap:VirtualizedContainerService.HintSize="476.8,880.8" sap2010:WorkflowViewState.IdRef="Sequence_21">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Default="C:\Users\decadev\Desktop\Pension_Reconciliation_Process_DDL\Data\Output" Name="outputPath" />
                   </Sequence.Variables>
@@ -300,73 +313,132 @@
                       <InArgument x:TypeArguments="sd:DataRow">[dt_Custodian.Rows(Index)]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:MultipleAssign DisplayName="Multi Assign of Employes Rows Data" sap:VirtualizedContainerService.HintSize="433.6,194.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
-                    <ui:MultipleAssign.AssignOperations>
-                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[ecaCustAmount]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[currentDatarow.Item("EC_A AMOUNT").ToString]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[ecbCustAmount]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[currentDatarow.Item("EC_B AMOUNT").ToString]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[ttcCustAmount]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[currentDatarow.Item("TT_C AMOUNT").ToString]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[employeeCustPin]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[currentDatarow(1).ToString]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                      </scg:List>
-                    </ui:MultipleAssign.AssignOperations>
-                  </ui:MultipleAssign>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_23">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,164.8" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:MultipleAssign DisplayName="Multi Assign of Employes Rows Data" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[ecaCustAmount]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[currentDatarow.Item("EC_A AMOUNT").ToString]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[ecbCustAmount]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[currentDatarow.Item("EC_B AMOUNT").ToString]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[ttcCustAmount]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[currentDatarow.Item("TT_C AMOUNT").ToString]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[employeeCustPin]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[currentDatarow(1).ToString]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:MultipleAssign>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
                   <ui:WriteCell Cell="[&quot;F&quot;+ (counter + 1).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="433.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="[empFileSheet]" Text="FOUND" WorkbookPath="[empFilePath]" />
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Project\UpdateEmployersDif.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Modules\UpdateEmployersDif.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Project\UpdateEmployersDif.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Modules\UpdateEmployersDif.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpData">[ecaAmount]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_CustData">[ecaCustAmount]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpPath">[empFilePath]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpSheet">[empFileSheet]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_columnName">G</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Counter">[(counter + 1).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpData">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ecaAmount" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_CustData">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ecaCustAmount" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpPath">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="empFilePath" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpSheet">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="empFileSheet" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_columnName">
+                        <Literal x:TypeArguments="x:String">G</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Counter">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="(counter + 1).ToString" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Project\UpdateEmployersDif.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Modules\UpdateEmployersDif.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Project\UpdateEmployersDif.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Modules\UpdateEmployersDif.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpData">[ecbAmount]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_CustData">[ecbCustAmount]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpPath">[empFilePath]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpSheet">[empFileSheet]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_columnName">H</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Counter">[(counter + 1).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpData">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ecbAmount" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_CustData">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ecbCustAmount" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpPath">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="empFilePath" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpSheet">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="empFileSheet" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_columnName">
+                        <Literal x:TypeArguments="x:String">H</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Counter">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="(counter + 1).ToString" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Project\UpdateEmployersDif.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Modules\UpdateEmployersDif.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpData">[ttcAmount]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_CustData">[ttcCustAmount]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpPath">[empFilePath]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpSheet">[empFileSheet]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_columnName">I</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Counter">[(counter + 1).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpData">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ttcAmount" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_CustData">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ttcCustAmount" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpPath">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="empFilePath" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_EmpSheet">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="empFileSheet" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_columnName">
+                        <Literal x:TypeArguments="x:String">I</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Counter">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="(counter + 1).ToString" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
@@ -436,49 +508,6 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="510.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_20">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_36">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                </Sequence>
-              </ui:CommentOut.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:CommentOut>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="510.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_14">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,197.6" sap2010:WorkflowViewState.IdRef="Sequence_30">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="387.2,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_14" Text="[employeePin + &quot; - &quot; + employeeCustPin]" />
-                </Sequence>
-              </ui:CommentOut.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:CommentOut>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
